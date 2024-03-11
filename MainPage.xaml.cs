@@ -1,15 +1,18 @@
-﻿namespace BestMauiApp
+﻿using BestMauiApp.Utils;
+using System.Globalization;
+
+namespace BestMauiApp
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
+
+            title.Text = $"Week: {Utils.Utils.GetCurrentWeek()}";
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnBtnClicked(object sender, EventArgs e)
         {
             count++;
 
