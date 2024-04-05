@@ -1,31 +1,50 @@
 ﻿using BestMauiApp.Models;
-using BestMauiApp.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace BestMauiApp.ViewModels;
 
-internal class AboutViewModel : ObservableObject
+internal class AboutViewModel : INotifyPropertyChanged
 {
     //TODO: change class to fit more with the current app
-    private Models.ExcerciseModel _excercise;
+    private ExcerciseModel _excercise;
 
     public string Title => AppInfo.Name;
     public string Version => AppInfo.VersionString;
-    public string MoreInfoUrl => "https://aka.ms/maui";
-    public string Message => "This app is written in XAML and C# with .NET MAUI.";
-    public ICommand ShowMoreInfoCommand { get; }
-    public ICommand GetWeek { get; }
     public string CurrentWeek => _excercise.CurrentWeek;
+    public string clickedBtn = string.Empty;
+    public ICommand ButtonClickCommand { get; }
+
+    private bool _buttonClicked = false;
+    public bool ButtonClicked
+    {
+        get => _buttonClicked;
+        set
+        {
+            _buttonClicked = value;
+            OnPropertyChanged(nameof(ButtonClicked));
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
 
     public AboutViewModel()
     {
-        ShowMoreInfoCommand = new AsyncRelayCommand(ShowMoreInfo);
         _excercise = new ExcerciseModel();
+        ButtonClickCommand = new Command<string>(OnButtonClicked);
     }
 
-    async Task ShowMoreInfo() =>
-        await Launcher.Default.OpenAsync(MoreInfoUrl);
+    public void OnButtonClicked(string day)
+    {
+        clickedBtn = day;
+        ButtonClicked = true;
+    }
 
+    protected virtual void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 }
