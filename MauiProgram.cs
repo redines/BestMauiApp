@@ -20,7 +20,7 @@ namespace BestMauiApp
     		builder.Logging.AddDebug();
 #endif
             string dbPath = FileAccessHelper.GetLocalFilePath("LocalDb.db3");
-            builder.Services.AddSingleton<ExcerciseRepository>(s => ActivatorUtilities.CreateInstance<ExcerciseRepository>(s, dbPath));
+            builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<ExcerciseRepository>(s, dbPath));
 
 
             return builder.Build();
