@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BestMauiApp.Repository;
+using Microsoft.Extensions.Logging;
 
 namespace BestMauiApp
 {
@@ -18,6 +19,9 @@ namespace BestMauiApp
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            string dbPath = FileAccessHelper.GetLocalFilePath("LocalDb.db3");
+            builder.Services.AddSingleton<ExcerciseRepository>(s => ActivatorUtilities.CreateInstance<ExcerciseRepository>(s, dbPath));
+
 
             return builder.Build();
         }
