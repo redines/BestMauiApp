@@ -1,5 +1,6 @@
 ﻿using BestMauiApp.Repository;
 using Microsoft.Extensions.Logging;
+using SQLite;
 
 namespace BestMauiApp
 {

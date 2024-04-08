@@ -3,7 +3,7 @@ using SQLite;
 
 namespace BestMauiApp.Repository
 {
-    internal class ExcerciseRepository
+    public class ExcerciseRepository
     {
         string _dbPath;
 
@@ -37,8 +37,12 @@ namespace BestMauiApp.Repository
                 //    throw new Exception("Valid name required");
 
                 result = await conn.InsertAsync(new ExcerciseModel { 
-                    CurrentWeek = excercise.CurrentWeek,
-                    Excercised = excercise.Excercised
+                    week = excercise.week,
+                    Monday = excercise.Monday,
+                    Tuesday = excercise.Tuesday,
+                    Wednesday = excercise.Wednesday,
+                    Thursday = excercise.Thursday,
+                    Friday = excercise.Friday
                 });
 
                 StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, excercise);

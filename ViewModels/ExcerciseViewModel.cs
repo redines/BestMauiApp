@@ -8,9 +8,6 @@ internal class ExcerciseViewModel : INotifyPropertyChanged
 {
     //TODO: change class to fit more with the current app
     private ExcerciseModel _excercise;
-
-    public string Title => AppInfo.Name;
-    public string Version => AppInfo.VersionString;
     public string CurrentWeek { get; set; }
     public string clickedBtn = string.Empty;
     public ICommand ButtonClickCommand { get; }

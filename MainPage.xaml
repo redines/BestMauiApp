@@ -5,7 +5,7 @@
              x:Class="BestMauiApp.MainPage">
 
     <ContentPage.BindingContext>
-        <viewModels:AboutViewModel />
+        <viewModels:ExcerciseViewModel />
     </ContentPage.BindingContext>
 
     <VerticalStackLayout
