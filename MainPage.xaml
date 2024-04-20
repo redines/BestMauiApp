@@ -1,12 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:BestMauiApp.ViewModels;assembly=BestMauiApp"
              x:Class="BestMauiApp.MainPage">
-
-    <ContentPage.BindingContext>
-        <viewModels:ExcerciseViewModel />
-    </ContentPage.BindingContext>
 
     <VerticalStackLayout
             Padding="30,0"
@@ -14,105 +9,16 @@
 
         <Label
                 x:Name='title'
-                Text="{Binding CurrentWeek, StringFormat='Week: {0}'}"
+                Text="Start"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-        <Button
-                x:Name="MonBtn"
-                Text="Monday" 
-                SemanticProperties.Hint="Monday"
-                HorizontalOptions="Fill"
-                BackgroundColor="{Binding ButtonBackgroundColor}"
-                Command="{Binding OnButtonClicked}">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Pressed">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="Green" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-        </Button>
+        <Grid
+            RowDefinitions="*, *, *" 
+            ColumnDefinitions="*, *"
+            >
+            <BoxView Grid.Row="1" Grid.Column="0" Color="Navy" />
 
-        <Button
-                x:Name="ThuesBtn"
-                Text="Tuesday" 
-                SemanticProperties.Hint="Tuesday"
-                HorizontalOptions="Fill"
-                BackgroundColor="{Binding ButtonBackgroundColor}"
-                Command="{Binding OnButtonClicked}">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Pressed">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="Green" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-        </Button>
-
-        <Button
-                x:Name="WednBtn"
-                Text="Wednesday" 
-                SemanticProperties.Hint="Wednesday"
-                HorizontalOptions="Fill"
-                BackgroundColor="{Binding ButtonBackgroundColor}"
-                Command="{Binding OnButtonClicked}">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Pressed">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="Green" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-        </Button>
-
-        <Button
-                x:Name="ThurBtn"
-                Text="Thursday" 
-                SemanticProperties.Hint="Thursday"
-                HorizontalOptions="Fill"
-                BackgroundColor="{Binding ButtonBackgroundColor}"
-                Command="{Binding OnButtonClicked}"
-                CommandParameter="Thursday">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Pressed">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="Green" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-        </Button>
-
-        <Button
-            x:Name="FriBtn"
-                Text="Friday" 
-                SemanticProperties.Hint="Friday"
-                HorizontalOptions="Fill"
-                BackgroundColor="{Binding ButtonBackgroundColor}"
-                Command="{Binding OnButtonClicked}"
-                CommandParameter="Friday clicked">
-
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Pressed">
-                        <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="Green" />
-                            <Setter Property="Text" Value="{Binding clickedBtn}" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-
-        </Button>
-
+        </Grid>
     </VerticalStackLayout>
-
 </ContentPage>
