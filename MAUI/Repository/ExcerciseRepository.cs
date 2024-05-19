@@ -1,5 +1,5 @@
 ﻿using BestMauiApp.Models;
-using SQLite;
+//using SQLite;
 
 namespace BestMauiApp.Repository
 {
@@ -9,15 +9,15 @@ namespace BestMauiApp.Repository
 
         public string StatusMessage { get; set; }
 
-        private SQLiteAsyncConnection conn;
+        //private SQLiteAsyncConnection conn;
 
         private async Task Init()
         {
-            if (conn != null)
-                return;
+            //if (conn != null)
+              //  return;
 
-            conn = new SQLiteAsyncConnection(_dbPath);
-            await conn.CreateTableAsync<ExcerciseModel>();
+            //conn = new SQLiteAsyncConnection(_dbPath);
+            //await conn.CreateTableAsync<ExcerciseModel>();
         }
 
         public ExcerciseRepository(string dbPath)
@@ -36,18 +36,18 @@ namespace BestMauiApp.Repository
                 //if (string.IsNullOrEmpty(excercise.))
                 //    throw new Exception("Valid name required");
 
-                result = await conn.InsertAsync(new ExcerciseModel { 
+               /* result = await conn.InsertAsync(new ExcerciseModel { 
                     week = excercise.week,
                     Monday = excercise.Monday,
                     Tuesday = excercise.Tuesday,
                     Wednesday = excercise.Wednesday,
                     Thursday = excercise.Thursday,
                     Friday = excercise.Friday
-                });
+                });*/
 
-                StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, excercise);
+                /*StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, excercise);*/
 
-                return result;
+                return 0;
             }
             catch (Exception ex)
             {
@@ -56,14 +56,15 @@ namespace BestMauiApp.Repository
 
             return 0;
         }
-
+        /*
         public async Task<ExcerciseModel> GetByExcerciseWeek(int week)
         {
-            var user = from u in conn.Table<ExcerciseModel>()
+            /*var user = from u in conn.Table<ExcerciseModel>()
                        where u.week == week
                        select u;
             return await user.FirstOrDefaultAsync();
         }
+    */
 
         public async Task<int> UpdateExcercise(ExcerciseModel excercise)
         {
@@ -71,7 +72,7 @@ namespace BestMauiApp.Repository
             try
             {
                 Init();
-                result = await conn.UpdateAsync(excercise);
+                //result = await conn.UpdateAsync(excercise);
                 
                 return result;
             }
@@ -88,7 +89,7 @@ namespace BestMauiApp.Repository
             try
             {
                 Init();
-                return await conn.Table<ExcerciseModel>().ToListAsync();
+                return null;//await conn.Table<ExcerciseModel>().ToListAsync();
             }
             catch (Exception ex)
             {

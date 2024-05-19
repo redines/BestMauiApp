@@ -1,11 +1,11 @@
-﻿using SQLite;
+﻿//using SQLite;
 
 namespace BestMauiApp.Models
 {
-    [Table("ExcerciseWeek")]
+    //[Table("ExcerciseWeek")]
     public class ExcerciseModel
     {
-        [PrimaryKey,AutoIncrement]
+        //[PrimaryKey,AutoIncrement]
         public int Id { get; set; }
         public int week { get; set; }
         public bool Monday { get; set; }
