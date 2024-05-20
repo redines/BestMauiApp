@@ -1,6 +1,8 @@
-﻿namespace Application.Features.Examples
+﻿using MediatR;
+
+namespace Application.Features.Excerices.Commands
 {
-    public class ExcerciseListVm
+    public class CreateExcerciseCommand : IRequest<Guid>
     {
         public Guid Id { get; set; }
         public string User { get; set; }

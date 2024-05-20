@@ -2,7 +2,7 @@
 
 namespace Application.Contracts.Persistance
 {
-    internal interface IExcerciseRepository : IAsyncRepository<ExampleEntity>
+    public interface IExcerciseRepository : IAsyncRepository<ExcerciseEntity>
     {
     }
 }

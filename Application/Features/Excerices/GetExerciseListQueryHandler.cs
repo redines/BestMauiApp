@@ -4,7 +4,6 @@ using MediatR;
 
 namespace Application.Features.Examples
 {
-    //Handler will contain the actual behaviour and execute through a request and return the Vm with wanted data
     public class GetExerciseListQueryHandler : IRequestHandler<GetExerciseListQuery,List<ExcerciseListVm>>
     {
         private readonly IAsyncRepository<ExcerciseListVm> _excerciseListVmRepository;
@@ -18,7 +17,7 @@ namespace Application.Features.Examples
 
         public async Task<List<ExcerciseListVm>> Handle(GetExerciseListQuery request, CancellationToken cancellationToken)
         {
-            var allEvents = (await _excerciseListVmRepository.ListAllAsync()).OrderBy(x => x.ExampleName);
+            var allEvents = (await _excerciseListVmRepository.ListAllAsync());
             return _mapper.Map<List<ExcerciseListVm>>(allEvents);
         }
     }

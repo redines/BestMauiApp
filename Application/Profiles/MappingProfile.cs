@@ -8,7 +8,7 @@ namespace Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<ExampleEntity, ExcerciseListVm>().ReverseMap();
+            CreateMap<ExcerciseEntity, ExcerciseListVm>().ReverseMap();
         }
     }
 }

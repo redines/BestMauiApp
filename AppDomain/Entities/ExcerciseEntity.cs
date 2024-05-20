@@ -1,6 +1,8 @@
-﻿namespace Application.Features.Examples
+﻿using Domain.Common;
+
+namespace Domain.Entities
 {
-    public class ExcerciseListVm
+    public class ExcerciseEntity : AuditableEntity
     {
         public Guid Id { get; set; }
         public string User { get; set; }
