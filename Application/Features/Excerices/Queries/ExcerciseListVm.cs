@@ -1,4 +1,4 @@
-﻿namespace Application.Features.Examples
+﻿namespace Application.Features.Excerices.Queries
 {
     public class ExcerciseListVm
     {

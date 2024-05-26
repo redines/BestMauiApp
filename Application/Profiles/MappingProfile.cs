@@ -1,4 +1,4 @@
-﻿using Application.Features.Examples;
+﻿using Application.Features.Excerices.Queries;
 using AutoMapper;
 using Domain.Entities;
 

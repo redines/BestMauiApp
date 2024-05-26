@@ -2,9 +2,9 @@
 using AutoMapper;
 using MediatR;
 
-namespace Application.Features.Examples
+namespace Application.Features.Excerices.Queries
 {
-    public class GetExerciseListQueryHandler : IRequestHandler<GetExerciseListQuery,List<ExcerciseListVm>>
+    public class GetExerciseListQueryHandler : IRequestHandler<GetExerciseListQuery, List<ExcerciseListVm>>
     {
         private readonly IAsyncRepository<ExcerciseListVm> _excerciseListVmRepository;
         private readonly IMapper _mapper;
@@ -17,7 +17,7 @@ namespace Application.Features.Examples
 
         public async Task<List<ExcerciseListVm>> Handle(GetExerciseListQuery request, CancellationToken cancellationToken)
         {
-            var allEvents = (await _excerciseListVmRepository.ListAllAsync());
+            var allEvents = await _excerciseListVmRepository.ListAllAsync();
             return _mapper.Map<List<ExcerciseListVm>>(allEvents);
         }
     }
