@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI.Pages.Excercisetracker">
+    <VerticalStackLayout>
+        <Label
+                Text="Track excercise"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+        <Grid RowDefinitions="Auto, Auto, Auto, *, Auto, Auto, Auto"
+              ColumnDefinitions="*, *"
+              Padding="40">
+
+            <Button x:Name="MonBtn"
+                    SemanticProperties.Hint="Monday"
+                    Text="Monday" 
+                    Margin="5" 
+                    Grid.Row="1" 
+                    Grid.Column="0"
+                    BackgroundColor="{Binding ButtonBackgroundColor}"
+                    Command="{Binding OnButtonClicked}">
+            </Button>
+            
+            <Button x:Name="TuesBtn"
+                    SemanticProperties.Hint="Tuesday"
+                    Text="Tuesday" 
+                    Margin="5" 
+                    Grid.Row="1" 
+                    Grid.Column="1"/>
+            
+            <Button x:Name="WedBtn" 
+                    SemanticProperties.Hint="Wednesday"
+                    Text="Wednesday" 
+                    Margin="5" 
+                    Grid.Row="2" 
+                    Grid.Column="0"/>
+            
+            <Button x:Name="ThurBtn"
+                    SemanticProperties.Hint="Thursday"
+                    Text="Thursday" 
+                    Margin="5" 
+                    Grid.Row="2" 
+                    Grid.Column="1"/>
+            
+            <Button x:Name="FriBtn"
+                    SemanticProperties.Hint="Friday"
+                    Text="Friday" 
+                    Margin="5" 
+                    Grid.Row="3"/>
+
+            <!--<Button
+                BackgroundColor="{Binding ButtonBackgroundColor}"
+                Command="{Binding OnButtonClicked}">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Green" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>-->
+        </Grid>
+
+        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End" Spacing="100" Grid.Row="4" Grid.ColumnSpan="3">
+            <Label Text="Total excercised:" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

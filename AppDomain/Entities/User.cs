@@ -1,10 +1,11 @@
-﻿using Domain.Common;
+﻿//using Domain.Common;
 
-namespace Domain.Entities
-{
-    public class User : AuditableEntity
-    {
-        public Guid Id { get; set; }
-        public string Username { get; set; }
-    }
-}
+//namespace Domain.Entities
+//{
+//    public class User : AuditableEntity
+//    {
+//        public Guid Id { get; set; }
+//        public string Username { get; set; }
+//        public int amountExcercised { get; set; }
+//    }
+//}

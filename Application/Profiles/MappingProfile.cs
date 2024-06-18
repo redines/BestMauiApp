@@ -1,4 +1,5 @@
-﻿using Application.Features.Excerices.Queries;
+﻿using Application.Features.Excerices.Commands;
+using Application.Features.Excerices.Queries;
 using AutoMapper;
 using Domain.Entities;
 
@@ -8,7 +9,9 @@ namespace Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<ExcerciseEntity, ExcerciseListVm>().ReverseMap();
+            CreateMap<Excercise, ExcerciseListVm>().ReverseMap();
+            CreateMap<Excercise, ExcerciseDetailVM>().ReverseMap();
+            CreateMap<Excercise, CreateExcerciseCommand>().ReverseMap();
         }
     }
 }

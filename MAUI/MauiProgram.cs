@@ -1,6 +1,5 @@
 ﻿using BestMauiApp.Repository;
-using BestMauiApp.Utils;
-using Microsoft.Extensions.Logging;
+using MAUI.Pages;
 
 namespace BestMauiApp
 {
@@ -15,12 +14,13 @@ namespace BestMauiApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FASolid");
                 });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
-            string dbPath = FileAccessHelper.GetLocalFilePath("LocalDb.db3");
+
+            builder.Services.AddTransient<Excercisetracker>();
+
+            string dbPath = MAUI.FileAccessHelper.GetLocalFilePath("Local.db3");
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<ExcerciseRepository>(s, dbPath));
 
 

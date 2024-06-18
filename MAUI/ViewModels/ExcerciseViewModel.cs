@@ -1,4 +1,5 @@
-﻿using BestMauiApp.Models;
+﻿
+using Domain.Entities;
 using System.ComponentModel;
 using System.Windows.Input;
 
@@ -7,7 +8,7 @@ namespace BestMauiApp.ViewModels;
 internal class ExcerciseViewModel : INotifyPropertyChanged
 {
     //TODO: change class to fit more with the current app
-    private ExcerciseModel _excercise;
+    private Excercise _excercise;
     public string CurrentWeek { get; set; }
     public string clickedBtn = string.Empty;
     public ICommand ButtonClickCommand { get; }
@@ -27,7 +28,7 @@ internal class ExcerciseViewModel : INotifyPropertyChanged
 
     public ExcerciseViewModel()
     {
-        _excercise = new ExcerciseModel();
+        _excercise = new Excercise();
         ButtonClickCommand = new Command<string>(OnButtonClicked);
     }
 

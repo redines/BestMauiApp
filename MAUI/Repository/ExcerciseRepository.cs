@@ -1,5 +1,5 @@
-﻿using BestMauiApp.Models;
-//using SQLite;
+﻿using Domain.Entities;
+using SQLite;
 
 namespace BestMauiApp.Repository
 {
@@ -9,15 +9,15 @@ namespace BestMauiApp.Repository
 
         public string StatusMessage { get; set; }
 
-        //private SQLiteAsyncConnection conn;
+        private SQLiteAsyncConnection conn;
 
         private async Task Init()
         {
-            //if (conn != null)
-              //  return;
+            if (conn != null)
+                return;
 
-            //conn = new SQLiteAsyncConnection(_dbPath);
-            //await conn.CreateTableAsync<ExcerciseModel>();
+            conn = new SQLiteAsyncConnection(_dbPath);
+            await conn.CreateTableAsync<Excercise>();
         }
 
         public ExcerciseRepository(string dbPath)
@@ -25,27 +25,16 @@ namespace BestMauiApp.Repository
             _dbPath = dbPath;
         }
 
-        public async Task<int> AddNewExcerciseWeek(ExcerciseModel excercise)
+        public async Task<int> AddNewExcerciseWeek(Excercise excercise)
         {
             int result;
             try
             {
                 Init();
 
-                // basic validation to ensure a name was entered
-                //if (string.IsNullOrEmpty(excercise.))
-                //    throw new Exception("Valid name required");
+               result = await conn.InsertAsync(excercise);
 
-               /* result = await conn.InsertAsync(new ExcerciseModel { 
-                    week = excercise.week,
-                    Monday = excercise.Monday,
-                    Tuesday = excercise.Tuesday,
-                    Wednesday = excercise.Wednesday,
-                    Thursday = excercise.Thursday,
-                    Friday = excercise.Friday
-                });*/
-
-                /*StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, excercise);*/
+                StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, excercise);
 
                 return 0;
             }
@@ -56,23 +45,22 @@ namespace BestMauiApp.Repository
 
             return 0;
         }
-        /*
-        public async Task<ExcerciseModel> GetByExcerciseWeek(int week)
+      
+        /*public async Task<ExcerciseEntity> GetByExcerciseWeek(int week)
         {
-            /*var user = from u in conn.Table<ExcerciseModel>()
+            var user = from u in conn.Table<ExcerciseEntity>()
                        where u.week == week
                        select u;
             return await user.FirstOrDefaultAsync();
-        }
-    */
+        }*/
 
-        public async Task<int> UpdateExcercise(ExcerciseModel excercise)
+        public async Task<int> UpdateExcercise(Excercise excercise)
         {
             int result = 0;
             try
             {
                 Init();
-                //result = await conn.UpdateAsync(excercise);
+                result = await conn.UpdateAsync(excercise);
                 
                 return result;
             }
@@ -84,19 +72,19 @@ namespace BestMauiApp.Repository
             return result;
         }
 
-        public async Task<List<ExcerciseModel>> GetAllExcerciseWeeks()
+        public async Task<List<Excercise>> GetAllExcerciseWeeks()
         {
             try
             {
                 Init();
-                return null;//await conn.Table<ExcerciseModel>().ToListAsync();
+                return await conn.Table<Excercise>().ToListAsync();
             }
             catch (Exception ex)
             {
                 StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
             }
 
-            return new List<ExcerciseModel>();
+            return new List<Excercise>();
         }
     }
 }

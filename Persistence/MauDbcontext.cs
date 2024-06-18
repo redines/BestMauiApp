@@ -10,16 +10,14 @@ namespace Persistence
         public MauDbcontext(DbContextOptions<MauDbcontext>
         options) : base(options)
         {
-            SQLitePCL.Batteries_V2.Init();
-            this.Database.EnsureCreated();
         }
 
-        public DbSet<ExcerciseEntity> Events { get; set; }
+        public DbSet<Excercise> Excercises { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(MauDbcontext).Assembly);
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.ApplyConfigurationsFromAssembly(typeof(MauDbcontext).Assembly);
+        //}
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

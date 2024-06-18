@@ -18,7 +18,7 @@ namespace Application.Features.Excerices.Commands
 
         public async Task<Guid> Handle(CreateExcerciseCommand request, CancellationToken cancellationToken)
         {
-            var excercise = _mapper.Map<ExcerciseEntity>(request);
+            var excercise = _mapper.Map<Excercise>(request);
             excercise = await _excerciseRepository.AddAsync(excercise);
             return excercise.Id;
         }

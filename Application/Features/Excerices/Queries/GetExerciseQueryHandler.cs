@@ -2,26 +2,29 @@
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Features.Excerices.Queries
 {
     //Handler will contain the actual behaviour and execute through a request and return the Vm with wanted data
-    public class GetExerciseQueryHandler : IRequestHandler<GetExerciseQuery, ExcerciseListVm>
+    public class GetExerciseQueryHandler : IRequestHandler<GetExerciseQuery,ExcerciseDetailVM>
     {
-        private readonly IAsyncRepository<ExcerciseEntity> _excerciseVmRepository;
+        private readonly IAsyncRepository<Excercise> _excerciseVmRepository;
         private readonly IMapper _mapper;
 
-        public GetExerciseQueryHandler(IAsyncRepository<ExcerciseEntity> excerciseVmRepository, IMapper mapper)
+        public GetExerciseQueryHandler(IAsyncRepository<Excercise> excerciseVmRepository, IMapper mapper)
         {
             _excerciseVmRepository = excerciseVmRepository;
             _mapper = mapper;
         }
 
-        public async Task<ExcerciseListVm> Handle(GetExerciseQuery request, CancellationToken cancellationToken)
+        public async Task<ExcerciseDetailVM> Handle(GetExerciseQuery request, CancellationToken cancellationToken)
         {
-            //var allEvents = await _excerciseVmRepository.GetByIdAsync();
-            //return _mapper.Map<List<ExcerciseListVm>>(allEvents);
-            return null;
+            var excer = await _excerciseVmRepository.GetByIdAsync(request.Id);
+            var detail = _mapper.Map<ExcerciseDetailVM>(excer);
+
+
+            return detail;
         }
     }
 }
