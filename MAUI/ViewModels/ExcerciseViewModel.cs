@@ -1,14 +1,29 @@
 ﻿
+using BestMauiApp.Data;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Domain.Entities;
+using MAUI.Data;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 
 namespace BestMauiApp.ViewModels;
 
-internal class ExcerciseViewModel : INotifyPropertyChanged
+public partial class ExcerciseViewModel : ObservableObject
 {
-    //TODO: change class to fit more with the current app
-    private Excercise _excercise;
+
+    [ObservableProperty]
+    ObservableCollection<Excercise> _excercise;
+
+    [ObservableProperty]
+    bool _isRefreshing = false;
+
+
+    [ObservableProperty]
+    bool _isBusy = false;
+
     public string CurrentWeek { get; set; }
     public string clickedBtn = string.Empty;
     public ICommand ButtonClickCommand { get; }
@@ -28,7 +43,13 @@ internal class ExcerciseViewModel : INotifyPropertyChanged
 
     public ExcerciseViewModel()
     {
-        _excercise = new Excercise();
+        _excercise = new ObservableCollection<Excercise>();
+        WeakReferenceMessenger.Default.Register<RefreshMessage>(this, async (r, m) =>
+        {
+            await LoadData();
+        });
+
+        Task.Run(LoadData);
         ButtonClickCommand = new Command<string>(OnButtonClicked);
     }
 
@@ -41,5 +62,35 @@ internal class ExcerciseViewModel : INotifyPropertyChanged
     protected virtual void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    [RelayCommand]
+    async Task LoadData()
+    {
+        if (IsBusy)
+            return;
+
+        try
+        {
+            IsRefreshing = true;
+            IsBusy = true;
+
+            var ExcerciseCollection = await Datamanager.GetAll();
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Excercise.Clear();
+
+                foreach (Excercise excercise in ExcerciseCollection)
+                {
+                    ExcerciseCollection.Add(excercise);
+                }
+            });
+        }
+        finally
+        {
+            IsRefreshing = false;
+            IsBusy = false;
+        }
     }
 }

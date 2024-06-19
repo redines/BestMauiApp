@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MAUI.Pages.Excercisetracker">
+             x:Class="MAUI.Pages.Excercisetracker"
+             xmlns:viewmodel="clr-namespace:BestMauiApp.ViewModels"
+             xmlns:data="clr-namespace:Domain.Entities;assembly=Domain"
+             x:DataType="viewmodel:ExcerciseViewModel">
     <VerticalStackLayout>
         <Label
                 Text="Track excercise"
@@ -17,9 +20,7 @@
                     Text="Monday" 
                     Margin="5" 
                     Grid.Row="1" 
-                    Grid.Column="0"
-                    BackgroundColor="{Binding ButtonBackgroundColor}"
-                    Command="{Binding OnButtonClicked}">
+                    Grid.Column="0">
             </Button>
             
             <Button x:Name="TuesBtn"
@@ -64,8 +65,23 @@
             </Button>-->
         </Grid>
 
-        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End" Spacing="100" Grid.Row="4" Grid.ColumnSpan="3">
-            <Label Text="Total excercised:" />
-        </HorizontalStackLayout>
+        <RefreshView Grid.Row="1" Grid.Column="0" IsRefreshing="{Binding IsRefreshing}" x:Name="refreshView" 
+                     Command="{Binding LoadDataCommand}">
+            <CollectionView  Margin="30,20,30,30"
+                             ItemsSource="{Binding Excercise}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Excercise">
+                        <VerticalStackLayout Padding="15,10" Margin="10,5,10,5">
+                            <Label Text="{Binding Id, StringFormat='ID: {0}'}" FontSize="Title" Margin="0,0,0,20"/>
+                            <Label Text="{Binding ExcerciseType, StringFormat='ExcerciseType: {0}'}"/>
+                            <Label Text="{Binding ExampleDescription, StringFormat='ExampleDescription: {0}'}"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
     </VerticalStackLayout>
 </ContentPage>

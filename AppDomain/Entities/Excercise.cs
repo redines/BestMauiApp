@@ -2,6 +2,7 @@
 
 namespace Domain.Entities
 {
+    [Serializable]
     public class Excercise : AuditableEntity
     {
         public Guid Id { get; set; }
