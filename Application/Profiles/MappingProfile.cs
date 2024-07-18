@@ -1,7 +1,7 @@
 ﻿using Application.Features.Excerices.Commands;
 using Application.Features.Excerices.Queries;
 using AutoMapper;
-using Domain.Entities;
+using Domain.Entities.ExcerciseEntities;
 
 namespace Application.Profiles
 {

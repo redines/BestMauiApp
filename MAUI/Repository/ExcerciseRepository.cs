@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.ExcerciseEntities;
 using SQLite;
 
 namespace BestMauiApp.Repository

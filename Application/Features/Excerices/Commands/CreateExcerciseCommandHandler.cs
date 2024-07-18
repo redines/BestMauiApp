@@ -1,6 +1,6 @@
 ﻿using Application.Contracts.Persistance;
 using AutoMapper;
-using Domain.Entities;
+using Domain.Entities.ExcerciseEntities;
 using MediatR;
 
 namespace Application.Features.Excerices.Commands

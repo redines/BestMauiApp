@@ -1,8 +1,9 @@
-﻿using Domain.Entities.ExcerciseEntities;
+﻿using Domain.Common;
 
-namespace Application.Features.Excerices.Queries
+namespace Domain.Entities.ExcerciseEntities
 {
-    public class ExcerciseListVm
+    [Serializable]
+    public class Excercise : AuditableEntity
     {
         public Guid Id { get; set; }
         public User User { get; set; }
@@ -12,7 +13,7 @@ namespace Application.Features.Excerices.Queries
         public bool Wednesday { get; set; }
         public bool Thursday { get; set; }
         public bool Friday { get; set; }
-        public bool Saturday { get;set; }
+        public bool Saturday { get; set; }
         public bool Sunday { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Domain.Common;
-using Domain.Entities;
+using Domain.Entities.ExcerciseEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 

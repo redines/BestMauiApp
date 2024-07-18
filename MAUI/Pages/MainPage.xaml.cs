@@ -1,5 +1,5 @@
 ﻿using BestMauiApp;
-using Domain.Entities;
+using Domain.Entities.ExcerciseEntities;
 
 namespace MAUI.Pages
 {

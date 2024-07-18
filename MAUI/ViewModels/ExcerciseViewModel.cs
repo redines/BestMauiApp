@@ -3,7 +3,7 @@ using BestMauiApp.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
-using Domain.Entities;
+using Domain.Entities.ExcerciseEntities;
 using MAUI.Data;
 using System.Collections.ObjectModel;
 using System.ComponentModel;

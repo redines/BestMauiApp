@@ -1,5 +1,5 @@
 ﻿using Application.Contracts.Persistance;
-using Domain.Entities;
+using Domain.Entities.ExcerciseEntities;
 
 namespace Persistence.Repository
 {

@@ -24,6 +24,14 @@ namespace MauiApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet("one", Name = "GetExcercise")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<ExcerciseDetailVM>> GetExcercise()
+        {
+            var result = await _mediator.Send(new GetExerciseQuery());
+            return Ok(result);
+        }
+
         [HttpPost(Name = "AddExcercise")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateExcerciseCommand createExcerciseCommand)
         {
