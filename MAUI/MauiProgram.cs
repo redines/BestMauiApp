@@ -18,7 +18,7 @@ namespace BestMauiApp
                 });
 
 
-            builder.Services.AddTransient<Excercisetracker>();
+            //builder.Services.AddTransient<Excercisetracker>();
 
             string dbPath = MAUI.FileAccessHelper.GetLocalFilePath("Local.db3");
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<ExcerciseRepository>(s, dbPath));

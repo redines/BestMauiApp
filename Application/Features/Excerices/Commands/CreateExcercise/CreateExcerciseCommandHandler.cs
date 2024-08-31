@@ -3,7 +3,7 @@ using AutoMapper;
 using Domain.Entities.ExcerciseEntities;
 using MediatR;
 
-namespace Application.Features.Excerices.Commands
+namespace Application.Features.Excerices.Commands.CreateExcercise
 {
     public class CreateExcerciseCommandHandler : IRequestHandler<CreateExcerciseCommand, Guid>
     {

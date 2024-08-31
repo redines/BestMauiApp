@@ -7,6 +7,6 @@ public partial class Excercisetracker : ContentPage
 	public Excercisetracker()
 	{
 		InitializeComponent();
-        BindingContext = new ExcerciseViewModel();
+        //BindingContext = new ExcerciseViewModel();
     }
 }

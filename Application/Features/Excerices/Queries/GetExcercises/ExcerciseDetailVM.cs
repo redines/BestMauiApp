@@ -1,9 +1,8 @@
-﻿using Domain.Common;
+﻿using Domain.Entities.ExcerciseEntities;
 
-namespace Domain.Entities.ExcerciseEntities
+namespace Application.Features.Excerices.Queries.GetExcercises
 {
-    [Serializable]
-    public class Excercise : AuditableEntity
+    public class ExcerciseDetailVM
     {
         public Guid Id { get; set; }
         public string Type { get; set; }
@@ -13,6 +12,6 @@ namespace Domain.Entities.ExcerciseEntities
         public int? Weight { get; set; }
         public int? Sets { get; set; }
         public int? Reps { get; set; }
-        public Workout? Workout { get; set; }
+        public string Day { get; set; }
     }
 }

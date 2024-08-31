@@ -20,15 +20,15 @@ namespace MAUI.Pages
 
         }
 
-        public async void OnNewButtonClicked(object sender, EventArgs args)
-        {
+        //public async void onnewbuttonclicked(object sender, eventargs args)
+        //{
 
-            await App.ExcerciseRepository.AddNewExcerciseWeek(new Excercise{
-                Id = Guid.NewGuid(),
-                User = "pontus"
-            });
+        //    await app.excerciserepository.addnewexcerciseweek(new excercise{
+        //        id = guid.newguid(),
+        //        user = "pontus"
+        //    });
 
-        }
+        //}
 
         public async void OnGetButtonClicked(object sender, EventArgs args)
         {

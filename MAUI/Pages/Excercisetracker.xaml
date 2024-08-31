@@ -65,7 +65,7 @@
             </Button>-->
         </Grid>
 
-        <RefreshView Grid.Row="1" Grid.Column="0" IsRefreshing="{Binding IsRefreshing}" x:Name="refreshView" 
+        <!--<RefreshView Grid.Row="1" Grid.Column="0" IsRefreshing="{Binding IsRefreshing}" x:Name="refreshView" 
                      Command="{Binding LoadDataCommand}">
             <CollectionView  Margin="30,20,30,30"
                              ItemsSource="{Binding Excercise}">
@@ -73,15 +73,15 @@
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="data:Excercise">
+                    --><!--<DataTemplate x:DataType="data:Excercise">
                         <VerticalStackLayout Padding="15,10" Margin="10,5,10,5">
-                            <Label Text="{Binding Id, StringFormat='ID: {0}'}" FontSize="Title" Margin="0,0,0,20"/>
+                            --><!--<Label Text="{Binding Id, StringFormat='ID: {0}'}" FontSize="Title" Margin="0,0,0,20"/>
                             <Label Text="{Binding ExcerciseType, StringFormat='ExcerciseType: {0}'}"/>
-                            <Label Text="{Binding ExampleDescription, StringFormat='ExampleDescription: {0}'}"/>
+                            <Label Text="{Binding ExampleDescription, StringFormat='ExampleDescription: {0}'}"/>--><!--
                         </VerticalStackLayout>
-                    </DataTemplate>
+                    </DataTemplate>--><!--
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </RefreshView>
+        </RefreshView>-->
     </VerticalStackLayout>
 </ContentPage>

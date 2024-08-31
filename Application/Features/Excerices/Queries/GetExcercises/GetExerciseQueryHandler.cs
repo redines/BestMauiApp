@@ -4,10 +4,10 @@ using Domain.Entities.ExcerciseEntities;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Features.Excerices.Queries
+namespace Application.Features.Excerices.Queries.GetExcercises
 {
     //Handler will contain the actual behaviour and execute through a request and return the Vm with wanted data
-    public class GetExerciseQueryHandler : IRequestHandler<GetExerciseQuery,ExcerciseDetailVM>
+    public class GetExerciseQueryHandler : IRequestHandler<GetExerciseQuery, ExcerciseDetailVM>
     {
         private readonly IAsyncRepository<Excercise> _excerciseVmRepository;
         private readonly IMapper _mapper;

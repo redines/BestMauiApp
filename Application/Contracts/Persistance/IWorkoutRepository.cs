@@ -2,7 +2,7 @@
 
 namespace Application.Contracts.Persistance
 {
-    public interface IExcerciseTypeRepository : IAsyncRepository<Excercisetype>
+    public interface IWorkoutRepository : IAsyncRepository<Workout>
     {
     }
 }

@@ -1,6 +1,6 @@
-﻿using Application.Features.Excerices.Commands;
+﻿using Application.Features.Excerices.Commands.CreateExcercise;
 using Application.Features.Excerices.Queries;
-using Domain.Entities;
+using Application.Features.Excerices.Queries.GetExcercises;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,7 +18,7 @@ namespace MauiApi.Controllers
 
         [HttpGet("all", Name = "GetAllExcercises")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<ExcerciseListVm>>> GetAllExcercises()
+        public async Task<ActionResult<List<ExcerciseDetailVM>>> GetAllExcercises()
         {
             var result = await _mediator.Send(new GetExerciseListQuery());
             return Ok(result);

@@ -7,7 +7,7 @@ namespace BestMauiApp
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(Excercisetracker), typeof(Excercisetracker));
+            //Routing.RegisterRoute(nameof(Excercisetracker), typeof(Excercisetracker));
         }
     }
 }

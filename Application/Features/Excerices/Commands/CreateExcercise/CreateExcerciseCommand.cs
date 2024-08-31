@@ -1,11 +1,9 @@
-﻿using Domain.Common;
+﻿using MediatR;
 
-namespace Domain.Entities.ExcerciseEntities
+namespace Application.Features.Excerices.Commands.CreateExcercise
 {
-    [Serializable]
-    public class Excercise : AuditableEntity
+    public class CreateExcerciseCommand : IRequest<Guid>
     {
-        public Guid Id { get; set; }
         public string Type { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
@@ -13,6 +11,6 @@ namespace Domain.Entities.ExcerciseEntities
         public int? Weight { get; set; }
         public int? Sets { get; set; }
         public int? Reps { get; set; }
-        public Workout? Workout { get; set; }
+        public string Day { get; set; }
     }
 }
