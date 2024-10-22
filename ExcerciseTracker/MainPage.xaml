@@ -5,6 +5,10 @@
              xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              xmlns:viewmodel="clr-namespace:ExcerciseTracker.ViewModels"
              x:DataType="viewmodel:MainViewModel">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"
+                            IsVisible="False"/>
+    </Shell.BackButtonBehavior>
     <Grid RowDefinitions="Auto,*,Auto">
         <!--Header-->
         <Grid ColumnDefinitions="*,*"
@@ -14,7 +18,9 @@
                 Source="{mi:FontAwesomeSolid Icon=User}" Grid.Column="0"
                 Command="{Binding GoToProfileCommand}"/>
             <ImageButton
-                Source="{mi:FontAwesomeSolid Icon=Gear}" Grid.Column="1"
+                Source="{mi:FontAwesomeSolid Icon=Gear}" 
+                Grid.Column="1"
+                Command="{Binding GoToSettingsCommand}"
                 />
         </Grid>
 
@@ -60,7 +66,8 @@
                        Text="Todays program: "/>
                 <Button Margin="20" 
                         FontSize="Medium" 
-                        Text="Start workout" />
+                        Text="Start workout" 
+                        Command="{Binding GoToTodaysWorkoutCommand}"/>
             </VerticalStackLayout>
         </Grid>
 
@@ -70,8 +77,12 @@
               ColumnDefinitions="*,*"
               ColumnSpacing="12"
               BackgroundColor="{StaticResource Secondary}">
-            <Button Text="Today" Grid.Column="0"/>
-            <Button Text="Workouts" Grid.Column="1"/>
+            <Button Text="Today" 
+                    Grid.Column="0"
+                    />
+            <Button Text="Workouts" 
+                    Grid.Column="1"
+                    />
         </Grid>
     </Grid>
 </ContentPage>

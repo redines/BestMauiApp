@@ -9,6 +9,8 @@ namespace ExcerciseTracker
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(ProfileView), typeof(ProfileView));
+            Routing.RegisterRoute(nameof(SettingsView), typeof(SettingsView));
+            Routing.RegisterRoute(nameof(TodaysWorkoutView), typeof(TodaysWorkoutView));
         }
     }
 }

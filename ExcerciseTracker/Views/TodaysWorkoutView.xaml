@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExcerciseTracker.Views.TodaysWorkoutView"
+             xmlns:viewmodel="clr-namespace:ExcerciseTracker.ViewModels"
+             x:DataType="viewmodel:TodaysWorkoutViewModel"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons">
+    
+    <Grid RowDefinitions="Auto,*,Auto" 
+          BackgroundColor="{StaticResource Gray500}">
+        <!--Content-->
+        <VerticalStackLayout 
+            Grid.Row="1"
+            Padding="20"
+            Margin="20"
+            BackgroundColor="{StaticResource Gray100}">
+            <Label Margin="20,20,0,0"
+                   TextColor="Black"
+                   FontSize="Medium"
+                   Text="Workout lower body - Excercises: 0/2 "/>
+            <BoxView HeightRequest="1" Color="Gray" HorizontalOptions="FillAndExpand" />
+            <Label Margin="20,20,0,0"
+                   TextColor="Black"
+                   FontSize="Medium"
+                   Text="Todays program: "/>
+            <Button Margin="20" 
+                    FontSize="Medium" 
+                    Text="Start workout" 
+                    Command="{Binding GoToTodaysWorkoutCommand}"/>
+        </VerticalStackLayout>
+
+        <!--Footer-->
+        <Grid Grid.Row="2" 
+          Padding="20"
+          ColumnDefinitions="*,*"
+          ColumnSpacing="12"
+          BackgroundColor="{StaticResource Secondary}">
+            <Button Text="Today" 
+                Grid.Column="0"
+                />
+            <Button Text="Workouts" 
+                Grid.Column="1"
+                />
+        </Grid>
+    </Grid>
+</ContentPage>

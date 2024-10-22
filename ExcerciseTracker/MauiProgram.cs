@@ -28,6 +28,10 @@ namespace ExcerciseTracker
 
             builder.Services.AddTransient<ProfileView>();
             builder.Services.AddTransient<ProfileViewModel>();
+            builder.Services.AddTransient<SettingsView>();
+            builder.Services.AddTransient<SettingsViewModel>();
+            builder.Services.AddTransient<TodaysWorkoutView>();
+            builder.Services.AddTransient<TodaysWorkoutViewModel>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

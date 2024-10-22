@@ -4,23 +4,19 @@ using ExcerciseTracker.Views;
 
 namespace ExcerciseTracker.ViewModels
 {
-    public partial class MainViewModel : ObservableObject
+    public partial class SettingsViewModel : ObservableObject
     {
 
-        public MainViewModel()
+        [RelayCommand]
+        async Task GoToMain()
         {
+            await Shell.Current.GoToAsync("///MainPage");
         }
 
         [RelayCommand]
         async Task GoToProfile()
         {
             await Shell.Current.GoToAsync(nameof(ProfileView));
-        }
-
-        [RelayCommand]
-        async Task GoToSettings()
-        {
-            await Shell.Current.GoToAsync(nameof(SettingsView));
         }
 
         [RelayCommand]
