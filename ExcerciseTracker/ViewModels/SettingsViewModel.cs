@@ -24,5 +24,11 @@ namespace ExcerciseTracker.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(TodaysWorkoutView));
         }
+
+        [RelayCommand]
+        async Task GoToWorkout()
+        {
+            await Shell.Current.GoToAsync(nameof(WorkoutView));
+        }
     }
 }

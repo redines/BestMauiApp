@@ -1,16 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExcerciseTracker.Views;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ExcerciseTracker.ViewModels
 {
-    public partial class MainViewModel : ObservableObject
+    public partial class CrudViewModel : ObservableObject
     {
-
-        public MainViewModel()
-        {
-        }
-
         [RelayCommand]
         async Task GoToProfile()
         {
@@ -24,15 +24,9 @@ namespace ExcerciseTracker.ViewModels
         }
 
         [RelayCommand]
-        async Task GoToTodaysWorkout()
+        async Task GoBack()
         {
-            await Shell.Current.GoToAsync(nameof(TodaysWorkoutView));
-        }
-
-        [RelayCommand]
-        async Task GoToWorkout()
-        {
-            await Shell.Current.GoToAsync(nameof(WorkoutView));
+            await Shell.Current.GoToAsync("../");
         }
     }
 }

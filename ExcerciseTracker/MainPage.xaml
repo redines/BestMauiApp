@@ -82,7 +82,7 @@
                     />
             <Button Text="Workouts" 
                     Grid.Column="1"
-                    />
+                    Command="{Binding GoToWorkoutCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>

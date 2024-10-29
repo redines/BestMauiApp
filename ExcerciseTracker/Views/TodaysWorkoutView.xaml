@@ -5,7 +5,10 @@
              xmlns:viewmodel="clr-namespace:ExcerciseTracker.ViewModels"
              x:DataType="viewmodel:TodaysWorkoutViewModel"
              xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons">
-    
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"
+                            IsVisible="False"/>
+    </Shell.BackButtonBehavior>
     <Grid RowDefinitions="Auto,*,Auto" 
           BackgroundColor="{StaticResource Gray500}">
         <!--Content-->
@@ -26,7 +29,7 @@
             <Button Margin="20" 
                     FontSize="Medium" 
                     Text="Start workout" 
-                    Command="{Binding GoToTodaysWorkoutCommand}"/>
+                    />
         </VerticalStackLayout>
 
         <!--Footer-->
@@ -36,11 +39,11 @@
           ColumnSpacing="12"
           BackgroundColor="{StaticResource Secondary}">
             <Button Text="Today" 
-                Grid.Column="0"
-                />
+                    Grid.Column="0"
+                    Command="{Binding GoToMainCommand}"/>
             <Button Text="Workouts" 
-                Grid.Column="1"
-                />
+                    Grid.Column="1"
+                    />
         </Grid>
     </Grid>
 </ContentPage>

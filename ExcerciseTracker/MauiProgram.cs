@@ -1,4 +1,5 @@
-﻿using ExcerciseTracker.ViewModels;
+﻿using ExcerciseTracker.sqlite;
+using ExcerciseTracker.ViewModels;
 using ExcerciseTracker.Views;
 using MauiIcons.FontAwesome;
 using MauiIcons.FontAwesome.Brand;
@@ -32,6 +33,12 @@ namespace ExcerciseTracker
             builder.Services.AddTransient<SettingsViewModel>();
             builder.Services.AddTransient<TodaysWorkoutView>();
             builder.Services.AddTransient<TodaysWorkoutViewModel>();
+            builder.Services.AddTransient<WorkoutView>();
+            builder.Services.AddTransient<WorkoutViewModel>();
+            builder.Services.AddTransient<CrudView>();
+            builder.Services.AddTransient<CrudViewModel>();
+
+            builder.Services.AddSingleton<SQliteDatabase>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

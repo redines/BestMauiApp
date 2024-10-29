@@ -50,7 +50,7 @@
                     Command="{Binding GoToMainCommand}"/>
             <Button Text="Workouts" 
                     Grid.Column="1"
-                    Command="{Binding GoToTodaysWorkoutCommand}"/>
+                    Command="{Binding GoToWorkoutCommand}"/>
         </Grid> 
     </Grid>
 </ContentPage>

@@ -4,12 +4,8 @@ using ExcerciseTracker.Views;
 
 namespace ExcerciseTracker.ViewModels
 {
-    public partial class MainViewModel : ObservableObject
+    public partial class WorkoutViewModel : ObservableObject
     {
-
-        public MainViewModel()
-        {
-        }
 
         [RelayCommand]
         async Task GoToProfile()
@@ -24,15 +20,15 @@ namespace ExcerciseTracker.ViewModels
         }
 
         [RelayCommand]
-        async Task GoToTodaysWorkout()
+        async Task GoToMain()
         {
-            await Shell.Current.GoToAsync(nameof(TodaysWorkoutView));
+            await Shell.Current.GoToAsync("///MainPage");
         }
 
         [RelayCommand]
-        async Task GoToWorkout()
+        async Task GoToCrud()
         {
-            await Shell.Current.GoToAsync(nameof(WorkoutView));
+            await Shell.Current.GoToAsync(nameof(CrudViewModel));
         }
     }
 }

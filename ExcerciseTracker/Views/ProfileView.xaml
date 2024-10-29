@@ -45,8 +45,7 @@
           ColumnSpacing="12"
           BackgroundColor="{StaticResource Secondary}">
             <Button Text="Today" Grid.Column="0" Command="{Binding GoToMainCommand}"/>
-            <Button Text="Workouts" Grid.Column="1" 
-                    Command="{Binding GoToTodaysWorkoutCommand}"/>
+            <Button Text="Workouts" Grid.Column="1" Command="{Binding GoToWorkoutCommand}"/>
         </Grid>
     </Grid>
 </ContentPage>
