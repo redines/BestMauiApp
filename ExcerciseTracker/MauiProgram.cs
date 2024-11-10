@@ -16,7 +16,7 @@ namespace ExcerciseTracker
             builder
                 .UseMauiApp<App>()
                 .UseFontAwesomeBrandMauiIcons()
-                .UseFontAwesomeMauiIcons() 
+                .UseFontAwesomeMauiIcons()
                 .UseFontAwesomeSolidMauiIcons()
                 .ConfigureFonts(fonts =>
                 {
@@ -35,8 +35,14 @@ namespace ExcerciseTracker
             builder.Services.AddTransient<TodaysWorkoutViewModel>();
             builder.Services.AddTransient<WorkoutView>();
             builder.Services.AddTransient<WorkoutViewModel>();
-            builder.Services.AddTransient<CrudView>();
-            builder.Services.AddTransient<CrudViewModel>();
+            builder.Services.AddTransient<allExcercisesView>();
+            builder.Services.AddTransient<allExcercisesViewModel>();
+            builder.Services.AddTransient<addExcerciseView>();
+            builder.Services.AddTransient<addExcerciseViewModel>();
+            builder.Services.AddTransient<addWorkoutView>();
+            builder.Services.AddTransient<addWorkoutViewModel>();
+            builder.Services.AddTransient<allWorkoutsView>();
+            builder.Services.AddTransient<allWorkoutsViewModel>();
 
             builder.Services.AddSingleton<SQliteDatabase>();
 #if DEBUG

@@ -22,6 +22,5 @@ namespace Application.Features.Excerices.Commands.CreateExcercise
             excercise = await _excerciseRepository.AddAsync(excercise);
             return excercise.Id;
         }
-
     }
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExcerciseTracker.Views.addExcerciseView"
+             xmlns:viewmodel="clr-namespace:ExcerciseTracker.ViewModels"
+             x:DataType="viewmodel:addExcerciseViewModel"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False"
+                         IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!--Header-->
+        <Grid ColumnDefinitions="*,*"
+       Padding="10"
+       BackgroundColor="{StaticResource Primary}">
+            <ImageButton
+         Source="{mi:FontAwesomeSolid Icon=User}" Grid.Column="0"
+         Command="{Binding GoToProfileCommand}"/>
+            <ImageButton
+         Source="{mi:FontAwesomeSolid Icon=Gear}" 
+         Grid.Column="1"
+         Command="{Binding GoToSettingsCommand}"
+         />
+        </Grid>
+
+
+        <!--Content-->
+        <Grid Grid.Row="1" BackgroundColor="{StaticResource Gray500}">
+            <StackLayout 
+                 BackgroundColor="{StaticResource Gray100}">
+                <Entry
+                   Placeholder="Enter name"
+                    PlaceholderColor="{StaticResource Gray600}"
+                    Margin="20"
+                   ClearButtonVisibility="WhileEditing"
+                   Text="{Binding Excercisename}"
+                   FontSize="30"
+                   TextColor="{StaticResource Primary}"/>
+                <Entry
+                    Margin="20"
+                   Placeholder="Reps"
+                    PlaceholderColor="{StaticResource Gray600}"
+                   ClearButtonVisibility="WhileEditing"
+                   Text="{Binding Reps}"
+                    FontSize="30"
+                    TextColor="{StaticResource Primary}"/>
+                <Entry
+                    Margin="20"
+                   Placeholder="Sets"
+                    PlaceholderColor="{StaticResource Gray600}"
+                   ClearButtonVisibility="WhileEditing"
+                   Text="{Binding Sets}"
+                    FontSize="30"
+                    TextColor="{StaticResource Primary}"/>
+                <Entry
+                    Margin="20"
+                   Placeholder="EnterWeight"
+                    PlaceholderColor="{StaticResource Gray600}"
+                   ClearButtonVisibility="WhileEditing"
+                   Text="{Binding Weights}"
+                    FontSize="30"
+                    TextColor="{StaticResource Primary}"/>
+            </StackLayout>
+        </Grid>
+
+        <!--Footer-->
+        <Grid Grid.Row="2" 
+       Padding="20"
+       ColumnDefinitions="*,*"
+       ColumnSpacing="12"
+       BackgroundColor="{StaticResource Secondary}">
+            <ImageButton
+         Source="{mi:FontAwesomeSolid Icon=ArrowLeft}" 
+         Grid.Column="0"
+         Command="{Binding GoBackCommand}"
+         />
+            <Button Grid.Column="1" 
+            FontSize="Medium" 
+            Text="Add excercise" 
+            Command="{Binding SaveExcerciseCommand}"/>
+        </Grid>
+    </Grid>
+</ContentPage>

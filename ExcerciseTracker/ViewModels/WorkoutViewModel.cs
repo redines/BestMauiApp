@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExcerciseTracker.Views;
+using System.ComponentModel;
 
 namespace ExcerciseTracker.ViewModels
 {
@@ -28,7 +29,7 @@ namespace ExcerciseTracker.ViewModels
         [RelayCommand]
         async Task GoToCrud()
         {
-            await Shell.Current.GoToAsync(nameof(CrudViewModel));
+            await Shell.Current.GoToAsync(nameof(allExcercisesView));
         }
     }
 }

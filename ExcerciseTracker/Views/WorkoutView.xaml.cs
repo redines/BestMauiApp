@@ -4,7 +4,7 @@ namespace ExcerciseTracker.Views;
 
 public partial class WorkoutView : ContentPage
 {
-	public WorkoutView( TodaysWorkoutViewModel vm)
+	public WorkoutView(WorkoutViewModel vm)
 	{
 		InitializeComponent();
 		BindingContext = vm;

@@ -20,5 +20,32 @@ namespace ExcerciseTracker.sqlite
             await Database.CreateTableAsync<Excercise>();
             await Database.CreateTableAsync<Workout>();
         }
+
+        public async Task<List<Excercise>> GetExcercisesAsync()
+        {
+            await Init();
+            return await Database.Table<Excercise>().ToListAsync();
+        }
+
+        public async Task<Excercise> GetExcerciseAsync(Guid id)
+        {
+            await Init();
+            return await Database.Table<Excercise>().Where(i => i.Id == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<int> SaveItemAsync(Excercise Excercise)
+        {
+            await Init();
+            //if (Excercise.Id != 0)
+            //    return await Database.UpdateAsync(Excercise);
+            //else
+            return await Database.InsertAsync(Excercise);
+        }
+
+        public async Task<int> DeleteItemAsync(Excercise Excercise)
+        {
+            await Init();
+            return await Database.DeleteAsync(Excercise);
+        }
     }
 }

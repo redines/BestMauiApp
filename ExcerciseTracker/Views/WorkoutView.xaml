@@ -53,7 +53,7 @@
                 <Button Margin="20" 
                      FontSize="Medium" 
                      Text="Show all workouts" 
-                     Command="{Binding GoToCrudCommand}"/>
+                     />
             </VerticalStackLayout>
         </Grid>
 
