@@ -3,24 +3,24 @@ using AutoMapper;
 using Domain.Entities.ExcerciseEntities;
 using MediatR;
 
-namespace Application.Features.Workouts.Commands
+namespace Application.Features.Workouts.Commands.CreateWorkout
 {
-    public class DeleteWorkoutCommandHandler : IRequestHandler<DeleteWorkoutCommand, Guid>
+    public class CreateWorkoutCommandHandler : IRequestHandler<CreateWorkoutCommand, Guid>
     {
-        private readonly IExcerciseRepository _excerciseRepository;
+        private readonly IWorkoutRepository _workoutRepository;
         private readonly IMapper _mapper;
-        public DeleteWorkoutCommandHandler(IMapper mapper, IExcerciseRepository
-        excerciseRepository)
+        public CreateWorkoutCommandHandler(IMapper mapper, IWorkoutRepository
+        workoutRepository)
         {
             _mapper = mapper;
-            _excerciseRepository = excerciseRepository;
+            _workoutRepository = workoutRepository;
         }
 
-        public async Task<Guid> Handle(DeleteWorkoutCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateWorkoutCommand request, CancellationToken cancellationToken)
         {
-            var excercise = _mapper.Map<Excercise>(request);
-            excercise = await _excerciseRepository.AddAsync(excercise);
-            return excercise.Id;
+            var workout = _mapper.Map<Workout>(request);
+            workout = await _workoutRepository.AddAsync(workout);
+            return workout.Id;
         }
 
     }

@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace ExcerciseTracker
+namespace ExcerciseTracker.Platforms.MacCatalyst
 {
     public class Program
     {

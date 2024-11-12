@@ -11,10 +11,11 @@ namespace Persistence
         public static IServiceCollection AddPersistenceServices(this
         IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<MauDbcontext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("mauconstring")));
+            services.AddDbContext<WorkoutDbcontext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("sqlservercon")));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IExcerciseRepository, ExcerciseRepository>();
+            services.AddScoped<IWorkoutRepository, WorkoutRepository>();
             return services;
         }
     }

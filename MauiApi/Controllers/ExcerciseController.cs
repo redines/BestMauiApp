@@ -1,5 +1,4 @@
 ﻿using Application.Features.Excerices.Commands.CreateExcercise;
-using Application.Features.Excerices.Queries;
 using Application.Features.Excerices.Queries.GetExcercises;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

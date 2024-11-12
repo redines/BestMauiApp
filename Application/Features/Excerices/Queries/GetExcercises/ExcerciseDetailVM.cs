@@ -12,6 +12,5 @@ namespace Application.Features.Excerices.Queries.GetExcercises
         public int? Weight { get; set; }
         public int? Sets { get; set; }
         public int? Reps { get; set; }
-        public string Day { get; set; }
     }
 }

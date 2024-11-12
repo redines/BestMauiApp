@@ -11,7 +11,7 @@ using Persistence;
 
 namespace Persistence.Migrations
 {
-    [DbContext(typeof(MauDbcontext))]
+    [DbContext(typeof(WorkoutDbcontext))]
     [Migration("20240617173845_InitialMigration")]
     partial class InitialMigration
     {

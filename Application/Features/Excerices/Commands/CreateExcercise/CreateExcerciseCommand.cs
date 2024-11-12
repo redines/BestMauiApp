@@ -11,6 +11,5 @@ namespace Application.Features.Excerices.Commands.CreateExcercise
         public int? Weight { get; set; }
         public int? Sets { get; set; }
         public int? Reps { get; set; }
-        public string Day { get; set; }
     }
 }

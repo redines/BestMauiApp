@@ -11,7 +11,7 @@ using Persistence;
 
 namespace Persistence.Migrations
 {
-    [DbContext(typeof(MauDbcontext))]
+    [DbContext(typeof(WorkoutDbcontext))]
     [Migration("20240831114911_changedent")]
     partial class changedent
     {

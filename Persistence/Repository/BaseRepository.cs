@@ -5,9 +5,9 @@ namespace Persistence.Repository
 {
     public class BaseRepository<T> : IAsyncRepository<T> where T : class
     {
-        protected readonly MauDbcontext _dbContext;
+        protected readonly WorkoutDbcontext _dbContext;
 
-        public BaseRepository(MauDbcontext dbContext)
+        public BaseRepository(WorkoutDbcontext dbContext)
         {
             _dbContext = dbContext;
         }

@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace ExcerciseTracker
+namespace ExcerciseTracker.Platforms.MacCatalyst
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

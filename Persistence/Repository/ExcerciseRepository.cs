@@ -3,9 +3,9 @@ using Domain.Entities.ExcerciseEntities;
 
 namespace Persistence.Repository
 {
-    public class ExcerciseRepository : BaseRepository<Excercise>, IExcerciseRepository
+    public class WorkoutRepository : BaseRepository<Workout>, IWorkoutRepository
     {
-        public ExcerciseRepository(MauDbcontext dbcontext) : base(dbcontext)
+        public WorkoutRepository(WorkoutDbcontext dbcontext) : base(dbcontext)
         {
 
         }

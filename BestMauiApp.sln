@@ -21,13 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{3FB12C98-A298-4252-AD3B-677D91E22220}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApi", "MauiApi\MauiApi.csproj", "{DAA66461-BAD8-40BC-8FE4-D14ECAE00660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkoutApi", "MauiApi\WorkoutApi.csproj", "{DAA66461-BAD8-40BC-8FE4-D14ECAE00660}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4A819F89-8A7B-4CB8-9F2B-1FA8B492DA33} = {4A819F89-8A7B-4CB8-9F2B-1FA8B492DA33}
 		{8A83698A-AD57-457E-B0B1-ABE8FA19FEFF} = {8A83698A-AD57-457E-B0B1-ABE8FA19FEFF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcerciseTracker", "ExcerciseTracker\ExcerciseTracker.csproj", "{C8C336FD-A85F-44DB-B6E5-9E9238D8F691}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcerciseTracker", "ExcerciseTracker\ExcerciseTracker.csproj", "{C8C336FD-A85F-44DB-B6E5-9E9238D8F691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

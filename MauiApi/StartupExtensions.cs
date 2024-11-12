@@ -7,8 +7,7 @@ namespace MauiApi
 {
     public static class StartupExtensions
     {
-        public static WebApplication ConfigureServices(
-      this WebApplicationBuilder builder)
+        public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
         {
             AddSwagger(builder.Services);
 
@@ -31,7 +30,7 @@ namespace MauiApi
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Best MAUI app API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Workout API");
             });
 
             app.UseCors("open");
@@ -49,7 +48,7 @@ namespace MauiApi
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Best MAUI app API",
+                    Title = "Workout API",
 
                 });
             });
@@ -60,7 +59,7 @@ namespace MauiApi
             using var scope = app.Services.CreateScope();
             try
             {
-                var context = scope.ServiceProvider.GetService<MauDbcontext>();
+                var context = scope.ServiceProvider.GetService<WorkoutDbcontext>();
                 if (context != null)
                 {
                     await context.Database.EnsureDeletedAsync();
