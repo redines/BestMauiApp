@@ -20,7 +20,7 @@ namespace Application.Features.Excerices.Commands.CreateExcercise
         {
             var excercise = _mapper.Map<Excercise>(request);
             excercise = await _excerciseRepository.AddAsync(excercise);
-            return excercise.Id;
+            return excercise.ExcerciseId;
         }
     }
 }

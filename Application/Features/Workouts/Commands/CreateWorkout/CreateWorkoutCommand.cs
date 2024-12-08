@@ -7,6 +7,5 @@ namespace Application.Features.Workouts.Commands.CreateWorkout
     {
         public string Name { get; set; }
         public string? Day { get; set; }
-        public ICollection<Excercise>? Excercises { get; set; }
     }
 }

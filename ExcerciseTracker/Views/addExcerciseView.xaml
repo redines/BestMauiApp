@@ -12,25 +12,23 @@
     <Grid RowDefinitions="Auto,*,Auto">
         <!--Header-->
         <Grid ColumnDefinitions="*,*"
-       Padding="10"
-       BackgroundColor="{StaticResource Primary}">
+               Padding="10"
+               BackgroundColor="{StaticResource Primary}">
             <ImageButton
-         Source="{mi:FontAwesomeSolid Icon=User}" Grid.Column="0"
-         Command="{Binding GoToProfileCommand}"/>
+                 Source="{mi:FontAwesomeSolid Icon=User}" Grid.Column="0"
+                 Command="{Binding GoToProfileCommand}"/>
             <ImageButton
-         Source="{mi:FontAwesomeSolid Icon=Gear}" 
-         Grid.Column="1"
-         Command="{Binding GoToSettingsCommand}"
+                 Source="{mi:FontAwesomeSolid Icon=Gear}" 
+                 Grid.Column="1"
+                 Command="{Binding GoToSettingsCommand}"
          />
         </Grid>
-
-
         <!--Content-->
         <Grid Grid.Row="1" BackgroundColor="{StaticResource Gray500}">
             <StackLayout 
                  BackgroundColor="{StaticResource Gray100}">
                 <Entry
-                   Placeholder="Enter name"
+                   Placeholder="Excercise name"
                     PlaceholderColor="{StaticResource Gray600}"
                     Margin="20"
                    ClearButtonVisibility="WhileEditing"

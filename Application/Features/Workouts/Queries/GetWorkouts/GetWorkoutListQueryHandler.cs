@@ -7,10 +7,10 @@ namespace Application.Features.Workouts.Queries.GetWorkouts
 {
     public class GetWorkoutListQueryHandler : IRequestHandler<GetWorkoutListQuery, List<WorkoutDetailVM>>
     {
-        private readonly IAsyncRepository<Workout> _workoutListVmRepository;
+        private readonly IWorkoutRepository _workoutListVmRepository;
         private readonly IMapper _mapper;
 
-        public GetWorkoutListQueryHandler(IMapper mapper, IAsyncRepository<Workout> WorkoutListVmRepository)
+        public GetWorkoutListQueryHandler(IMapper mapper, IWorkoutRepository WorkoutListVmRepository)
         {
             _workoutListVmRepository = WorkoutListVmRepository;
             _mapper = mapper;
@@ -18,7 +18,7 @@ namespace Application.Features.Workouts.Queries.GetWorkouts
 
         public async Task<List<WorkoutDetailVM>> Handle(GetWorkoutListQuery request, CancellationToken cancellationToken)
         {
-            var allExcersises = await _workoutListVmRepository.ListAllAsync();
+            var allExcersises = await _workoutListVmRepository.GetWorkoutswithExcercises();
             return _mapper.Map<List<WorkoutDetailVM>>(allExcersises);
         }
     }

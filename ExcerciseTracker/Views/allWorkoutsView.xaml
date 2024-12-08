@@ -2,11 +2,59 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExcerciseTracker.Views.allWorkoutsView"
-             Title="allWorkoutsView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             xmlns:viewmodel="clr-namespace:ExcerciseTracker.ViewModels"
+             x:DataType="viewmodel:AllWorkoutsViewModel"
+             xmlns:local="clr-namespace:Domain.Entities.ExcerciseEntities;assembly=Domain"
+             Loaded="OnPageLoaded">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!--Header-->
+        <Grid ColumnDefinitions="*,*"
+               Padding="10"
+               BackgroundColor="{StaticResource Primary}">
+            <ImageButton Source="{mi:FontAwesomeSolid Icon=User}" Grid.Column="0" Command="{Binding GoToProfileCommand}"/>
+            <ImageButton Source="{mi:FontAwesomeSolid Icon=Gear}" Grid.Column="1" Command="{Binding GoToSettingsCommand}"/>
+        </Grid>
+
+        <!--Content-->
+        <Grid Grid.Row="1" BackgroundColor="{StaticResource Gray500}">
+            <CollectionView ItemsSource="{Binding AllWorkouts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type local:Workout}">
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+                                    <Label Text="{Binding Name,StringFormat='Name: {0}'}"
+                                           FontSize="24"
+                                           Grid.Row="0" Grid.Column="0"/>
+                                    <Label Text="{Binding Day,StringFormat='Sets: {0}'}"
+                                           FontSize="24"
+                                           Grid.Row="0" Grid.Column="1"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <!--Footer-->
+        <Grid Grid.Row="2" 
+               Padding="20"
+               ColumnDefinitions="*,*"
+               ColumnSpacing="12"
+               BackgroundColor="{StaticResource Secondary}">
+            <ImageButton
+                 Source="{mi:FontAwesomeSolid Icon=ArrowLeft}" 
+                 Grid.Column="0"
+                 Command="{Binding GoBackCommand}"/>
+            <Button Grid.Column="1" 
+                    FontSize="Medium" 
+                    Text="Create workout" 
+                    Command="{Binding GoToAddWorkoutCommand}"/>
+        </Grid>
+    </Grid>
 </ContentPage>

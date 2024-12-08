@@ -20,7 +20,7 @@ namespace Application.Features.Excerices.Queries.GetExcercises
 
         public async Task<ExcerciseDetailVM> Handle(GetExerciseQuery request, CancellationToken cancellationToken)
         {
-            var excer = await _excerciseVmRepository.GetByIdAsync(request.Id);
+            var excer = await _excerciseVmRepository.GetByIdAsync(request.ExcerciseId);
             var detail = _mapper.Map<ExcerciseDetailVM>(excer);
 
 

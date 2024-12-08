@@ -61,15 +61,15 @@
 		<PackageReference Include="AathifMahir.Maui.MauiIcons.FontAwesome.Brand" Version="4.0.0" />
 		<PackageReference Include="AathifMahir.Maui.MauiIcons.FontAwesome.Solid" Version="4.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
-		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.10" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.92">
+		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.10">
 		  <TreatAsUsed>true</TreatAsUsed>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.92">
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.10">
 		  <TreatAsUsed>true</TreatAsUsed>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 	</ItemGroup>
 

@@ -39,7 +39,7 @@
                 <Button Margin="20" 
                      FontSize="Medium" 
                      Text="Show all Excercises" 
-                     Command="{Binding GoToCrudCommand}"/>
+                     Command="{Binding GoToAddExcerciseCommand}"/>
             </StackLayout>
             <VerticalStackLayout 
              Grid.Row="1"
@@ -53,7 +53,7 @@
                 <Button Margin="20" 
                      FontSize="Medium" 
                      Text="Show all workouts" 
-                     />
+                     Command="{Binding GoToAddWorkoutCommand}"/>
             </VerticalStackLayout>
         </Grid>
 

@@ -1,10 +1,8 @@
-﻿using Domain.Entities.ExcerciseEntities;
-
-namespace Application.Features.Excerices.Queries.GetExcercises
+﻿namespace Application.Features.Excerices.Queries.GetExcercises
 {
     public class ExcerciseDetailVM
     {
-        public Guid Id { get; set; }
+        public Guid ExcerciseId { get; set; }
         public string Type { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }

@@ -6,23 +6,18 @@ using ExcerciseTracker.Views;
 
 namespace ExcerciseTracker.ViewModels
 {
-    public partial class addExcerciseViewModel : ObservableObject
+    public partial class AddWorkoutViewModel : ObservableObject
     {
         [ObservableProperty]
-        string? excercisename;
+        string? workoutName;
 
         [ObservableProperty]
-        string? reps;
+        string? workoutDay;
 
-        [ObservableProperty]
-        string? weights;
-
-        [ObservableProperty]
-        string? sets;
 
         SQliteDatabase database;
 
-        public addExcerciseViewModel(SQliteDatabase db)
+        public AddWorkoutViewModel(SQliteDatabase db)
         {
             database = db;
         }
@@ -40,9 +35,9 @@ namespace ExcerciseTracker.ViewModels
         }
 
         [RelayCommand]
-        async Task GoToAddExcercise()
+        async Task GoToAddWorkout()
         {
-            await Shell.Current.GoToAsync(nameof(addExcerciseView));
+            await Shell.Current.GoToAsync(nameof(addWorkoutView));
         }
 
         [RelayCommand]
@@ -52,28 +47,23 @@ namespace ExcerciseTracker.ViewModels
         }
 
         [RelayCommand]
-        async Task<int> SaveExcercise()
+        async Task<int> SaveWorkout()
         {
             int result = 0;
 
-            if (string.IsNullOrWhiteSpace(Excercisename) ||
-                string.IsNullOrWhiteSpace(Reps) ||
-                string.IsNullOrWhiteSpace(Sets) ||
-                string.IsNullOrWhiteSpace(Weights)
-                )
+            if (string.IsNullOrWhiteSpace(WorkoutName) ||
+                string.IsNullOrWhiteSpace(WorkoutDay))
             {
                 return result;
             }
 
-            Excercise newExcercise = new Excercise
+            Workout newWorkout = new Workout
             {
-                Name = Excercisename,
-                Reps = int.Parse(Reps),
-                Sets = int.Parse(Sets),
-                Weight = int.Parse(Weights)
+                Name = WorkoutName,
+                Day = WorkoutDay
             };
 
-            result = await database.SaveExcerciseAsync(newExcercise);
+            result = await database.SaveWorkoutAsync(newWorkout);
 
             return result;
         }

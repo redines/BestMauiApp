@@ -1,11 +1,12 @@
-﻿using Domain.Entities.ExcerciseEntities;
+﻿using Application.Features.Excerices.Queries.GetExcercises;
+using Domain.Entities.ExcerciseEntities;
 
 namespace Application.Features.Workouts.Queries.GetWorkouts
 {
     public class WorkoutDetailVM
     {
-        Guid Id { get; set; }
+        public Guid WorkoutId { get; set; }
         public string? Day { get; set; }
-        public ICollection<Excercise>? Excercises { get; set; }
+        public ICollection<ExcerciseDto>? Excercises { get; set; }
     }
 }

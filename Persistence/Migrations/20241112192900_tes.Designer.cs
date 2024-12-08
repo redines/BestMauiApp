@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
@@ -11,9 +12,11 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(WorkoutDbcontext))]
-    partial class MauDbcontextModelSnapshot : ModelSnapshot
+    [Migration("20241112192900_tes")]
+    partial class tes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +27,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.ExcerciseEntities.Excercise", b =>
                 {
-                    b.Property<Guid>("ExcerciseId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -61,10 +64,10 @@ namespace Persistence.Migrations
                     b.Property<int?>("Weight")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("WorkoutId")
+                    b.Property<Guid>("WorkoutId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("ExcerciseId");
+                    b.HasKey("Id");
 
                     b.HasIndex("WorkoutId");
 
@@ -73,7 +76,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.ExcerciseEntities.Workout", b =>
                 {
-                    b.Property<Guid>("WorkoutId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -95,7 +98,7 @@ namespace Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("WorkoutId");
+                    b.HasKey("Id");
 
                     b.ToTable("Workout");
                 });
@@ -104,7 +107,9 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Domain.Entities.ExcerciseEntities.Workout", "Workout")
                         .WithMany("Excercises")
-                        .HasForeignKey("WorkoutId");
+                        .HasForeignKey("WorkoutId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Workout");
                 });

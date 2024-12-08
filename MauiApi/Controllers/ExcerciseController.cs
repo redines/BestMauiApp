@@ -1,4 +1,5 @@
 ﻿using Application.Features.Excerices.Commands.CreateExcercise;
+using Application.Features.Excerices.Commands.UpdateExcercise;
 using Application.Features.Excerices.Queries.GetExcercises;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,16 @@ namespace MauiApi.Controllers
         {
             var result = await _mediator.Send(new GetExerciseQuery());
             return Ok(result);
+        }
+
+        [HttpPut(Name = "UpdateExcercise")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Update([FromBody] UpdateExcerciseCommand updateExcerciseCommand)
+        {
+            await _mediator.Send(updateExcerciseCommand);
+            return NoContent();
         }
 
         [HttpPost(Name = "AddExcercise")]

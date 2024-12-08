@@ -27,9 +27,15 @@ namespace ExcerciseTracker.ViewModels
         }
 
         [RelayCommand]
-        async Task GoToCrud()
+        async Task GoToAddExcercise()
         {
             await Shell.Current.GoToAsync(nameof(allExcercisesView));
+        }
+
+        [RelayCommand]
+        async Task GoToAddWorkout()
+        {
+            await Shell.Current.GoToAsync(nameof(allWorkoutsView));
         }
     }
 }

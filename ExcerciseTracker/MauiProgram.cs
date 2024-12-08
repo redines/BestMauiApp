@@ -40,9 +40,9 @@ namespace ExcerciseTracker
             builder.Services.AddTransient<addExcerciseView>();
             builder.Services.AddTransient<addExcerciseViewModel>();
             builder.Services.AddTransient<addWorkoutView>();
-            builder.Services.AddTransient<addWorkoutViewModel>();
+            builder.Services.AddTransient<AddWorkoutViewModel>();
             builder.Services.AddTransient<allWorkoutsView>();
-            builder.Services.AddTransient<allWorkoutsViewModel>();
+            builder.Services.AddTransient<AllWorkoutsViewModel>();
 
             builder.Services.AddSingleton<SQliteDatabase>();
 #if DEBUG

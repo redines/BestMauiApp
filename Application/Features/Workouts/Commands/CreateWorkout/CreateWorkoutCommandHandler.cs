@@ -20,7 +20,7 @@ namespace Application.Features.Workouts.Commands.CreateWorkout
         {
             var workout = _mapper.Map<Workout>(request);
             workout = await _workoutRepository.AddAsync(workout);
-            return workout.Id;
+            return workout.WorkoutId;
         }
 
     }
