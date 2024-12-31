@@ -5,8 +5,7 @@
              xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              xmlns:viewmodel="clr-namespace:ExcerciseTracker.ViewModels"
              x:DataType="viewmodel:allExcercisesViewModel"
-             xmlns:local="clr-namespace:Domain.Entities.ExcerciseEntities;assembly=Domain"
-             Loaded="OnPageLoaded">
+             xmlns:local="clr-namespace:ExcerciseTracker.Entities">
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
     </Shell.BackButtonBehavior>
@@ -23,7 +22,7 @@
         <Grid Grid.Row="1" BackgroundColor="{StaticResource Gray500}">
             <CollectionView ItemsSource="{Binding AllExcercises}">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="{x:Type local:Excercise}">
+                    <DataTemplate x:DataType="{x:Type local:Exercise}">
                         <Grid Padding="0,5">
                             <Frame>
                                 <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">

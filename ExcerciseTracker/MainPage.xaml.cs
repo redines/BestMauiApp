@@ -1,5 +1,4 @@
 ﻿using ExcerciseTracker.ViewModels;
-using ExcerciseTracker.Views;
 using MauiIcons.Core;
 
 namespace ExcerciseTracker
@@ -13,6 +12,13 @@ namespace ExcerciseTracker
             BindingContext = vm;
             _ = new MauiIcon();
         }
-    }
 
+        protected override void OnAppearing()
+        {
+            if (BindingContext is MainViewModel viewModel && viewModel.LoadCommand != null)
+            {
+                viewModel.LoadCommand.Execute(null);
+            }
+        }
+    }
 }

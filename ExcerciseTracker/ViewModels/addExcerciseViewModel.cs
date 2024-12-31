@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Domain.Entities.ExcerciseEntities;
 using ExcerciseTracker.sqlite;
 using ExcerciseTracker.Views;
+using ExcerciseTracker.Entities;
 
 namespace ExcerciseTracker.ViewModels
 {
@@ -65,7 +65,7 @@ namespace ExcerciseTracker.ViewModels
                 return result;
             }
 
-            Excercise newExcercise = new Excercise
+            Exercise newExcercise = new Exercise
             {
                 Name = Excercisename,
                 Reps = int.Parse(Reps),
@@ -74,6 +74,11 @@ namespace ExcerciseTracker.ViewModels
             };
 
             result = await database.SaveExcerciseAsync(newExcercise);
+
+            Excercisename = "";
+            Reps = "";
+            Sets = "";
+            Weights = "";
 
             return result;
         }

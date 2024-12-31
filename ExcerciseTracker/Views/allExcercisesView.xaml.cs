@@ -9,10 +9,12 @@ public partial class allExcercisesView : ContentPage
 		InitializeComponent();
 		BindingContext = vm;
 	}
-	private void OnPageLoaded(object sender, EventArgs e)
-	{
-		if (BindingContext is allExcercisesViewModel viewModel && viewModel.LoadCommand != null) { 
-			viewModel.LoadCommand.Execute(null); 
-		}
-	}
+
+    protected override void OnAppearing()
+    {
+        if (BindingContext is allExcercisesViewModel viewModel && viewModel.LoadCommand != null)
+        {
+            viewModel.LoadCommand.Execute(null);
+        }
+    }
 }

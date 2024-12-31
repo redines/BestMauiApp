@@ -29,6 +29,8 @@
                  BackgroundColor="{StaticResource Gray100}">
                 <Entry
                    Placeholder="Excercise name"
+                    Keyboard="Text"
+                    HorizontalTextAlignment="Center"
                     PlaceholderColor="{StaticResource Gray600}"
                     Margin="20"
                    ClearButtonVisibility="WhileEditing"
@@ -38,6 +40,8 @@
                 <Entry
                     Margin="20"
                    Placeholder="Reps"
+                    Keyboard="Numeric"
+                    HorizontalTextAlignment="Center"
                     PlaceholderColor="{StaticResource Gray600}"
                    ClearButtonVisibility="WhileEditing"
                    Text="{Binding Reps}"
@@ -46,6 +50,8 @@
                 <Entry
                     Margin="20"
                    Placeholder="Sets"
+                    Keyboard="Numeric"
+                    HorizontalTextAlignment="Center"
                     PlaceholderColor="{StaticResource Gray600}"
                    ClearButtonVisibility="WhileEditing"
                    Text="{Binding Sets}"
@@ -54,6 +60,8 @@
                 <Entry
                     Margin="20"
                    Placeholder="EnterWeight"
+                    Keyboard="Numeric"
+                    HorizontalTextAlignment="Center"
                     PlaceholderColor="{StaticResource Gray600}"
                    ClearButtonVisibility="WhileEditing"
                    Text="{Binding Weights}"

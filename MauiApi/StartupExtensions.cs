@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Models;
 using Persistence;
 using Application;
 
-namespace MauiApi
+namespace WorkoutApi
 {
     public static class StartupExtensions
     {

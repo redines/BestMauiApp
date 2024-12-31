@@ -9,4 +9,12 @@ public partial class WorkoutView : ContentPage
 		InitializeComponent();
 		BindingContext = vm;
 	}
+
+    protected override void OnAppearing()
+    {
+        if (BindingContext is WorkoutViewModel viewModel && viewModel.LoadCommand != null)
+        {
+            viewModel.LoadCommand.Execute(null);
+        }
+    }
 }

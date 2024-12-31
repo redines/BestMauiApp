@@ -10,7 +10,7 @@ public partial class allWorkoutsView : ContentPage
 		InitializeComponent();
 	}
 
-    private void OnPageLoaded(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
         if (BindingContext is AllWorkoutsViewModel viewModel && viewModel.LoadCommand != null)
         {

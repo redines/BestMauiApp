@@ -23,8 +23,6 @@
              Command="{Binding GoToSettingsCommand}"
              />
         </Grid>
-
-
         <!--Content-->
         <Grid Grid.Row="1" RowDefinitions="*,*" BackgroundColor="{StaticResource Gray500}">
             <StackLayout 
@@ -35,7 +33,7 @@
                     TextColor="Black"
                     FontSize="Medium"
                     HorizontalOptions="Center" 
-                    Text="Total excercises: 20"/>
+                    Text="{Binding AllExercises.Count,StringFormat='Name: {0}'}"/>
                 <Button Margin="20" 
                      FontSize="Medium" 
                      Text="Show all Excercises" 
@@ -49,7 +47,8 @@
                 <Label Margin="20,20,0,0"
                     TextColor="Black"
                     FontSize="Medium"
-                    Text="Total schedules: 5"/>
+                    HorizontalOptions="Center"
+                    Text="{Binding AllWorkouts.Count,StringFormat='Name: {0}'}"/>
                 <Button Margin="20" 
                      FontSize="Medium" 
                      Text="Show all workouts" 

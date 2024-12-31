@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExcerciseTracker.Views.WorkoutDetails"
+             Title="workoutDetails"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+             xmlns:viewmodel="clr-namespace:ExcerciseTracker.ViewModels"
+             x:DataType="viewmodel:WorkoutDetailsViewModel"
+             xmlns:local="clr-namespace:ExcerciseTracker.Entities"
+             Loaded="OnPageLoaded">
+    <StackLayout>
+        <Label
+               Text="{Binding Workout.Name}"
+               FontSize="24"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+        <ScrollView Grid.Row="1" Grid.ColumnSpan="1">
+            <CollectionView ItemsSource="{Binding AllExcercises}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type local:Exercise}">
+                        <Grid Padding="5" RowDefinitions="*,*" ColumnDefinitions="*,*,*">
+                            <ImageButton
+                              WidthRequest="25"
+                              HeightRequest="25"
+                              Source="{mi:FontAwesomeSolid Icon=Plus}" 
+                              Grid.Row="0" Grid.Column="0"
+                              BackgroundColor="Green"
+                              Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:WorkoutDetailsViewModel}}, Path=AddExerciseToWorkoutCommand}"
+                              CommandParameter="{Binding .}"/>
+                            
+                            <Label Text="{Binding Name,StringFormat='Name: {0}'}"
+                                   FontSize="22"
+                                   Grid.Row="0" Grid.Column="1"/>
+                            <Label Text="{Binding Sets,StringFormat='Sets: {0}'}"
+                                   FontSize="22"
+                                   Grid.Row="0" Grid.Column="2"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

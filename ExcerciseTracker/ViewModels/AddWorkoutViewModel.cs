@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Domain.Entities.ExcerciseEntities;
 using ExcerciseTracker.sqlite;
 using ExcerciseTracker.Views;
+using ExcerciseTracker.Entities;
 
 namespace ExcerciseTracker.ViewModels
 {
@@ -51,8 +51,7 @@ namespace ExcerciseTracker.ViewModels
         {
             int result = 0;
 
-            if (string.IsNullOrWhiteSpace(WorkoutName) ||
-                string.IsNullOrWhiteSpace(WorkoutDay))
+            if (string.IsNullOrWhiteSpace(WorkoutName))
             {
                 return result;
             }
@@ -64,6 +63,9 @@ namespace ExcerciseTracker.ViewModels
             };
 
             result = await database.SaveWorkoutAsync(newWorkout);
+
+            WorkoutName = "";
+            WorkoutDay = "";
 
             return result;
         }

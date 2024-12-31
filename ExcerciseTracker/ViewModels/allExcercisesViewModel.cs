@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Domain.Entities.ExcerciseEntities;
 using ExcerciseTracker.sqlite;
 using ExcerciseTracker.Views;
 using System.Collections.ObjectModel;
+using ExcerciseTracker.Entities;
 
 namespace ExcerciseTracker.ViewModels
 {
@@ -15,20 +15,21 @@ namespace ExcerciseTracker.ViewModels
         public allExcercisesViewModel(SQliteDatabase db)
         {
             database = db;
-            allExcercises = new ObservableCollection<Excercise>();
+            allExcercises = new ObservableCollection<Exercise>();
         }
 
         [ObservableProperty]
-        ObservableCollection<Excercise> allExcercises;
+        ObservableCollection<Exercise> allExcercises;
 
 
         [RelayCommand]
         async Task OnLoad()
         {
+            AllExcercises.Clear();
             var excList = await database.GetExcercisesAsync();
-            foreach (var excercise in excList)
+            foreach (var exercise in excList)
             {
-                AllExcercises.Add(excercise);
+                AllExcercises.Add(exercise);
             }
         }
 

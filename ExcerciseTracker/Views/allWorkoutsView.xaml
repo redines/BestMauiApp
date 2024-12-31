@@ -5,8 +5,7 @@
              xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              xmlns:viewmodel="clr-namespace:ExcerciseTracker.ViewModels"
              x:DataType="viewmodel:AllWorkoutsViewModel"
-             xmlns:local="clr-namespace:Domain.Entities.ExcerciseEntities;assembly=Domain"
-             Loaded="OnPageLoaded">
+             xmlns:local="clr-namespace:ExcerciseTracker.Entities">
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
     </Shell.BackButtonBehavior>
@@ -21,16 +20,22 @@
 
         <!--Content-->
         <Grid Grid.Row="1" BackgroundColor="{StaticResource Gray500}">
-            <CollectionView ItemsSource="{Binding AllWorkouts}">
+            <CollectionView ItemsSource="{Binding AllWorkouts}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type local:Workout}">
                         <Grid Padding="0,5">
                             <Frame>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllWorkoutsViewModel}}, Path=TapCommand}"
+                                        CommandParameter="{Binding .}"
+                                                          />
+                                </Frame.GestureRecognizers>
                                 <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
-                                    <Label Text="{Binding Name,StringFormat='Name: {0}'}"
+                                    <Label Text="{Binding Name,StringFormat='{0}'}"
                                            FontSize="24"
                                            Grid.Row="0" Grid.Column="0"/>
-                                    <Label Text="{Binding Day,StringFormat='Sets: {0}'}"
+                                    <Label Text="{Binding Day,StringFormat='{0}'}"
                                            FontSize="24"
                                            Grid.Row="0" Grid.Column="1"/>
                                 </Grid>

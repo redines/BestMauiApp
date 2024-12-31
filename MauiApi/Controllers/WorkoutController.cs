@@ -5,7 +5,7 @@ using Application.Features.Workouts.Queries.GetWorkoutsWithExcercises;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MauiApi.Controllers
+namespace WorkoutApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

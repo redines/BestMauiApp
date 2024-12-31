@@ -20,8 +20,7 @@
             <ImageButton
                  Source="{mi:FontAwesomeSolid Icon=Gear}" 
                  Grid.Column="1"
-                 Command="{Binding GoToSettingsCommand}"
-         />
+                 Command="{Binding GoToSettingsCommand}"/>
         </Grid>
         <!--Content-->
         <Grid Grid.Row="1" BackgroundColor="{StaticResource Gray500}">
@@ -29,6 +28,8 @@
                  BackgroundColor="{StaticResource Gray100}">
                 <Entry
                    Placeholder="Workout name"
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Text"
                     PlaceholderColor="{StaticResource Gray600}"
                     Margin="20"
                    ClearButtonVisibility="WhileEditing"
@@ -38,6 +39,8 @@
                 <Entry
                     Margin="20"
                    Placeholder="Day"
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Text"
                     PlaceholderColor="{StaticResource Gray600}"
                    ClearButtonVisibility="WhileEditing"
                    Text="{Binding WorkoutDay}"

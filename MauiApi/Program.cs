@@ -1,4 +1,4 @@
-using MauiApi;
+using WorkoutApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
