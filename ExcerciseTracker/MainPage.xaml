@@ -38,6 +38,10 @@
                        FontSize="Title"
                        HorizontalOptions="Center" 
                        Text="{Binding TodaysDay}"/>
+                <Label TextColor="Black"
+                       FontSize="18"
+                       HorizontalOptions="Center" 
+                       Text="{Binding CurrentWeek,StringFormat='Week: {0}'}"/>
                 <BoxView HeightRequest="1" Color="Gray" HorizontalOptions="FillAndExpand" />
                 <Label Margin="20,20,0,0"
                        TextColor="Black"
@@ -46,7 +50,6 @@
                        Text="Workouts"/>
             </VerticalStackLayout>
             <ScrollView
-                Margin="20,0,0,0"
                 Grid.Row="1">
                 <CollectionView ItemsSource="{Binding AllWorkouts}" SelectionMode="None">
                     <CollectionView.ItemTemplate>

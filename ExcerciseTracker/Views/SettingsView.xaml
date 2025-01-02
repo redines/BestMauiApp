@@ -31,11 +31,8 @@
         Grid.Row="0" 
         Margin="20"
         BackgroundColor="{StaticResource Gray100}">
-                <Label Margin="0,20,0,0"
-               TextColor="Black"
-               FontSize="Medium"
-               HorizontalOptions="Center" 
-               Text="Settings: "/>
+            <Label HorizontalOptions="Center" Text="Enable Dark Mode"/>
+            <Switch HorizontalOptions="Center" Toggled="OnThemeToggled"/>
             </StackLayout>
         </Grid>
 

@@ -13,6 +13,9 @@ namespace ExcerciseTracker.ViewModels
         private SQliteDatabase database;
         private Workout _workout;
 
+        [ObservableProperty]
+        bool excerciseDone = false;
+
         public TodaysWorkoutViewModel(SQliteDatabase db)
         {
             database = db;
@@ -34,6 +37,7 @@ namespace ExcerciseTracker.ViewModels
         [RelayCommand]
         async Task OnLoad()
         {
+            allExcercises.Clear();
             var x = await database.GetExercisesByWorkoutIdAsync(_workout.Id);
             if (x != null)
             {

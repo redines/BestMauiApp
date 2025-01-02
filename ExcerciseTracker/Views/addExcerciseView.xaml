@@ -59,7 +59,7 @@
                     TextColor="{StaticResource Primary}"/>
                 <Entry
                     Margin="20"
-                   Placeholder="EnterWeight"
+                   Placeholder="Weight in Kg"
                     Keyboard="Numeric"
                     HorizontalTextAlignment="Center"
                     PlaceholderColor="{StaticResource Gray600}"

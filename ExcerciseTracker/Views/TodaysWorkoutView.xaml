@@ -6,10 +6,6 @@
              x:DataType="viewmodel:TodaysWorkoutViewModel"
              xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              xmlns:local="clr-namespace:ExcerciseTracker.Entities">
-    <Shell.BackButtonBehavior>
-        <BackButtonBehavior IsEnabled="False"
-                            IsVisible="False"/>
-    </Shell.BackButtonBehavior>
     <Grid RowDefinitions="Auto,*,Auto" 
           BackgroundColor="{StaticResource Gray500}">
         <!--Content-->
@@ -29,16 +25,22 @@
             <ScrollView>
                 <CollectionView ItemsSource="{Binding AllExcercises}" SelectionMode="None">
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="{x:Type local:Workout}">
+                        <DataTemplate x:DataType="{x:Type local:Exercise}">
                             <Grid Padding="5">
                                 <Frame>
-                                    <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+                                    <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*">
                                         <Label Text="{Binding Name,StringFormat='{0}'}"
-                   FontSize="24"
-                   Grid.Row="0" Grid.Column="0"/>
-                                        <Label Text="{Binding Day,StringFormat='{0}'}"
-                   FontSize="24"
-                   Grid.Row="0" Grid.Column="1"/>
+                                               FontSize="24"
+                                               HorizontalOptions="Center"/>
+                                        <Label Text="{Binding Weight,StringFormat='{0}Kg'}"
+                                                   FontSize="24"
+                                                   Grid.Row="1" Grid.Column="0"/>
+                                        <Label Text="{Binding Sets,StringFormat='{0} sets'}"
+                                                FontSize="24"
+                                                Grid.Row="2" Grid.Column="0"/>
+                                            <Label Text="{Binding Reps,StringFormat='{0} reps'}"
+                                             FontSize="24"
+                                            Grid.Row="2" Grid.Column="1"/>
                                     </Grid>
                                 </Frame>
                             </Grid>
@@ -54,12 +56,12 @@
           ColumnDefinitions="*,*"
           ColumnSpacing="12"
           BackgroundColor="{StaticResource Secondary}">
-            <Button Text="Today" 
+            <!--<Button Text="Today" 
                     Grid.Column="0"
                     Command="{Binding GoToMainCommand}"/>
             <Button Text="Workouts" 
                     Grid.Column="1"
-                    />
+                    Command="{Binding GoToWorkoutsCommand}"/>-->
         </Grid>
     </Grid>
 </ContentPage>
